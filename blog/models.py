@@ -6,6 +6,9 @@ from django.contrib.auth.models import User
 # Create your models here.
 # 继承django.db.models.Model类
 class BlogArticles(models.Model):
+    """
+    定义文章属性
+    """
     # 定义属性，每个属性对应将来数据库表中的一个字段
     title = models.CharField(max_length=300)
     # 定义博客文章与用户之间的关系，ForeignKey反应了一对多的关系，类User就是BlogArticles的对应对象，related_name的作用就是允许通过类User反向查询到BlogArticles
