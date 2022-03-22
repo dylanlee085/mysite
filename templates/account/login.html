@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+    <div class="row text-center vertical-middle-sm">
+    <h1>Login</h1>
+    <p>Input your username and password</p>
+        <!-- csrf_token防止跨站请求伪造 -->
+    <form class="form-horizontal" action="." method="post">{% csrf_token %}
+        <!-- 通过{{ form.as_p }}得到前端模板所需要渲染的表单 -->
+        <!-- {{ form.as_p }} -->
+        <div class="form-group">
+            <label for="{{ form.username.id_for_label }}" class="col-md-5 control-label" style="color:red"><span class="glyphicon glyphicon-user"></span>Username</label>
+            <div class="col-md-6 text-left">{{ form.username }}</div>
+        </div>
+        <div class="form-group">
+            <label for="{{ form.password.id_for_label }}" class="col-md-5 control-label" style="color:blue"><span class="glyphicon glyphicon-user"></span>Password</label>
+            <div class="col-md-6 text-left">{{ form.password }}</div>
+        </div>
+        <input type="submit" class="btn btn-primary btn-lg" value="Login">
+    </form>
+    </div>
+{% endblock %}
